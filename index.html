@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Singleton + Módulo Demo</title>
+    <style>
+        body { font-family: Arial, sans-serif; display: flex; flex-direction: column; align-items: center; background: #f4f4f4; }
+        .container { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); width: 800px; margin-top: 20px; }
+        nav { width: 100%; background: #333; color: white; padding: 10px 0; text-align: center; }
+        #nav-content { display: flex; justify-content: space-around; align-items: center; }
+        #login-form, #dashboard-view { text-align: center; }
+        input { display: block; width: 80%; margin: 10px auto; padding: 8px; }
+        button { padding: 10px 20px; cursor: pointer; }
+        #store-layout { display: flex; gap: 20px; text-align: left; }
+        #product-list { flex: 2; }
+        #cart { flex: 1; border-left: 1px solid #eee; padding-left: 20px; }
+        .product-item { border: 1px solid #ddd; padding: 10px; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div id="nav-content"></div>
+    </nav>
+    <div class="container">
+        <div id="login-view">
+            <h2>Iniciar Sesión</h2>
+            <form id="login-form">
+                <input type="text" id="username" placeholder="Usuario (admin o user)" required>
+                <input type="password" id="password" placeholder="Contraseña (1234)" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+        <div id="dashboard-view" style="display: none;">
+            <div id="dashboard-content"></div>
+
+            <hr style="margin: 20px 0;">
+            <div id="facade-demo">
+                <h3>Demostración del Patrón Fachada</h3>
+                <p>Obtén datos externos con una interfaz simple.</p>
+                <button id="load-countries-btn">Cargar Países (API)</button>
+                <div id="api-results" style="margin-top: 10px; border: 1px solid #eee; padding: 10px; min-height: 50px;">
+                    Resultados de la API aparecerán aquí...
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
