@@ -6,8 +6,11 @@ import { renderDashboard } from './Dashboard.js';
 import { shoppingCart } from './Modulo/ShoppingCart.js';
 import { productList } from './Modulo/ProductList.js';
 import { apiService } from './Facade/ApiService.js';
+import { notificationUI } from './Observer/NotificationUI.js';
+
 
 function initializeApp() {
+    notificationUI.init(); 
     updateUI();
 }
 
@@ -65,6 +68,15 @@ document.addEventListener('click', async (e) => {
             `;
         } else {
             resultsDiv.innerHTML = 'Error al cargar los datos.';
+        }
+    }
+
+    if (target.id === 'apply-discount-btn') {
+        const codeInput = document.getElementById('discount-code-input');
+        if (codeInput) {
+            // El main.js no sabe NADA sobre descuentos.
+            // Simplemente le pasa el código al carrito.
+            shoppingCart.applyDiscountCode(codeInput.value);
         }
     }
 });
